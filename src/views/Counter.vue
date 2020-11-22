@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { ref, computed } from 'vue'
-import MyButton from '/@components/MyButton.vue'
+// import MyButton from '/@components/MyButton.vue'
 
 export default {
   components: { MyButton },
