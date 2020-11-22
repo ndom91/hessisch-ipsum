@@ -16,17 +16,14 @@ body {
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
 
 #app .view {
   position: relative;
-  min-height: 100vh;
   display: flex;
+  justify-content: center;
 }
 
 #app .view #nav {
@@ -67,8 +64,7 @@ body {
 
 #content {
   position: relative;
-  min-height: 100vh;
   width: 100%;
-  padding-left: 230px;
-  padding-right: 80px;
+  display: flex;
+  justify-content: center;
 }

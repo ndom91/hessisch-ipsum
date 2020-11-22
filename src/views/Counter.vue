@@ -1,11 +1,11 @@
 <template>
-  <div class="title">这是一个计数器</div>
+  <div class="title">Counter</div>
 
   <div class="counter">
-    原值: <span class="red">{{ count }}</span>
+    Original: <span class="red">{{ count }}</span>
   </div>
   <div class="counter">
-    原值的10倍: <span class="red">{{ count10 }}</span>
+    10x: <span class="red">{{ count10 }}</span>
   </div>
 
   <div>
@@ -30,8 +30,8 @@ export default {
   setup() {
     const count = ref(0)
     const disabled = ref(false)
-    const btnText = ref('点击增加count值')
-    const compText = ref('父子组件交互通信')
+    const btnText = ref('Increase')
+    const compText = ref('Interactive Parents <-> Child')
 
     const countAdd = () => {
       count.value++
