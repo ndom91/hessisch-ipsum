@@ -31,7 +31,38 @@
       </button>
     </section>
   </div>
-  <div class="output" contenteditable v-html="output"></div>
+
+  <div class="output__wrapper">
+    <button
+      v-if="isActive"
+      @click="copyOutput"
+      name="copy"
+      title="Copy to Clipboard"
+      class="--btn"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        height="24"
+        width="24"
+        stroke="#666"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+        />
+      </svg>
+    </button>
+    <div
+      class="--field"
+      contenteditable
+      v-html="output"
+      :class="{ active: isActive }"
+    ></div>
+  </div>
 </template>
 
 <script>
@@ -47,7 +78,7 @@ export default {
   name: 'Lorem',
   props: {},
   data() {
-    return { output: '', sentences: 0, paragraphs: 0 }
+    return { output: '', sentences: 0, paragraphs: 0, isActive: false }
   },
   methods: {
     createOutput(e) {
@@ -81,9 +112,22 @@ export default {
       this.sentences = 0
       this.paragraphs = 0
 
-      console.log('r', randSentences.join(' '))
-
+      console.log('sentences:', randSentences.length)
+      if (randSentences.length > 0) {
+        this.isActive = true
+      }
       this.output = randSentences.join(' ')
+    },
+    copyOutput(e) {
+      navigator.clipboard
+        .writeText(this.output)
+        .then(() => {
+          // Success!
+          console.log('copied!')
+        })
+        .catch((err) => {
+          console.log('Something went wrong', err)
+        })
     }
   }
 }
@@ -99,12 +143,18 @@ export default {
   cursor: pointer;
   outline: none;
   transition: all 250ms ease-in-out;
-  background-color: #fff;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(221, 0, 0, 1) 50%,
+    rgba(255, 206, 0, 1) 100%
+  );
 
   &:active,
   &:hover,
   &:focus {
-    border: 3px solid #00a073;
+    border: 3px solid #000;
   }
 }
 
@@ -131,19 +181,46 @@ export default {
     }
   }
 }
+
 #sentences,
 #paragraphs {
   margin-left: 0.5rem;
 }
+
+.output__wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+
+  .--btn {
+    height: 50px;
+    width: 50px;
+    margin-left: 1rem;
+    background: transparent;
+    border: 4px solid #ccc;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .--field {
+    border-radius: 5px;
+    padding: 12px;
+    width: 70%;
+    text-align: left;
+
+    &.active {
+      border: 4px solid #ccc;
+    }
+  }
+}
+
 .inputs input[type='number'] {
   height: 2em;
   width: 4em;
   margin-right: 2rem;
-}
-.output {
-  margin-top: 4rem;
-  padding: 12px;
-  width: 70%;
-  text-align: left;
 }
 </style>
