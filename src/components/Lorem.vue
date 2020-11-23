@@ -47,7 +47,7 @@ export default {
   name: 'Lorem',
   props: {},
   data() {
-    return { output: '' }
+    return { output: '', sentences: 0, paragraphs: 0 }
   },
   methods: {
     createOutput(e) {
