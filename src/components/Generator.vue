@@ -36,7 +36,7 @@
     <section class="relative">
       <button
         :disabled="disabled"
-        class="w-full bg-red-50 mt-2 p-2 h-10 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 focus:outline-none"
+        class="w-full bg-red-50 mt-2 p-2 h-10 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 focus:outline-none disabled:cursor-default"
         @click="createOutput"
       >
         Mach hin!
@@ -67,9 +67,9 @@
     </section>
   </div>
 
-  <div class="container flex mx-auto p-8">
+  <div class="container flex mx-auto w-3/4 md:w-1/2 p-4">
     <div
-      class="w-full p-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
+      class="w-full p-4 focus:outline-none border-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
       contenteditable
       v-html="output"
       :class="{ active: isActive }"
@@ -79,6 +79,7 @@
 
 <script>
 import { ref, computed } from 'vue'
+import { useToast } from 'vue-toastification'
 import Content from './content.json'
 
 // // After you create app
@@ -89,6 +90,10 @@ const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1)
 export default {
   name: 'Lorem',
   props: {},
+  setup() {
+    const toast = useToast()
+    return { toast }
+  },
   data() {
     return {
       output: '',
@@ -146,9 +151,15 @@ export default {
         .writeText(this.output)
         .then(() => {
           // Success!
+          this.toast.info('Copied!', {
+            toastClassName: ['text-red-500', 'bg-red-600'],
+            containerClassName: ['bg-red-500', 'text-red-500'],
+            transition: 'Vue-Toastification__fade'
+          })
           console.log('copied!')
         })
         .catch((err) => {
+          this.toast.error('Failed to copy!')
           console.log('Something went wrong', err)
         })
     }
