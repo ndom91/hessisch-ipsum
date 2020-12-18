@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Lorem Ipsum Generator, but uff Hessisch!" />
-    <Lorem />
+    <Header msg="Lorem Ipsum Generator, aber uff Hessisch!" />
+    <Generator />
   </div>
 </template>
 
 <script lang="ts">
-import HelloWorld from '/@components/HelloWorld.vue'
-import Lorem from '/@components/Lorem.vue'
+import Header from '/@components/Header.vue'
+import Generator from '/@components/Generator.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
-    Lorem
+    Header,
+    Generator
   }
 }
 </script>

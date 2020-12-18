@@ -1,18 +1,20 @@
 <template>
   <div class="view">
-    <!-- <div id="nav">
-      <div>
-        <b>🚀 [vue3, vite, ts]</b>
-      </div>
-      <div>
-        <router-link to="/"> Home</router-link>
-      </div>
-      <div>
-        <router-link to="/todomvc"> TodoMVC</router-link>
-      </div>
-    </div> -->
+    <div class="w-screen h-14 p-4 bg-gray-50">
+      <Nav />
+    </div>
     <div id="content">
       <router-view />
     </div>
   </div>
 </template>
+
+<script>
+import Nav from '/@components/Nav.vue'
+
+export default {
+  components: {
+    Nav
+  }
+}
+</script>

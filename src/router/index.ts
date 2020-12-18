@@ -1,21 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { Component } from 'vue'
 import Home from '/@views/Home.vue'
 
-const routes: Array<any> = [
+const routes: Array<{ path: string; name: string; component: Component }> = [
   {
     path: '/',
     name: 'Home',
     component: Home
   },
   {
-    path: '/counter',
-    name: 'Counter',
-    component: () => import('../views/Counter.vue')
-  },
-  {
-    path: '/todomvc',
-    name: 'TodoMVC',
-    component: () => import('../views/TodoMVC.vue')
+    path: '/about',
+    name: 'About',
+    component: () => import('/@views/About.vue')
   }
 ]
 
