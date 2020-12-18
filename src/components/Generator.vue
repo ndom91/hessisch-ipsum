@@ -69,10 +69,10 @@
 
   <div class="container flex mx-auto w-3/4 md:w-1/2 p-4">
     <div
-      class="w-full p-4 focus:outline-none border-2 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
+      class="w-full p-4 focus:outline-none rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
       contenteditable
       v-html="output"
-      :class="{ active: isActive }"
+      :class="{ 'border-2': isActive }"
     ></div>
   </div>
 </template>
