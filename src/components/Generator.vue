@@ -46,6 +46,7 @@
         @click="copyOutput"
         name="copy"
         title="Copy to Clipboard"
+        v-tooltip="'Copy'"
         class="absolute -right-12 top-2 p-1 h-10 text-gray-300 border-2 border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
       >
         <svg
@@ -150,13 +151,9 @@ export default {
       navigator.clipboard
         .writeText(this.output)
         .then(() => {
-          // Success!
-          this.toast.info('Copied!', {
-            toastClassName: ['text-red-500', 'bg-red-600'],
-            containerClassName: ['bg-red-500', 'text-red-500'],
-            transition: 'Vue-Toastification__fade'
+          this.toast.info('Kopiert!', {
+            hideProgressBar: true
           })
-          console.log('copied!')
         })
         .catch((err) => {
           this.toast.error('Failed to copy!')
@@ -166,3 +163,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.Vue-Toastification__toast--info {
+  background-color: #fca5a5 !important;
+  min-width: 185px !important;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <nav class="w-full flex justify-between align-center px-8">
     <div>
-      <b>Hessisch Ipsum</b>
+      <b>🇩🇪 Hessisch Ipsum</b>
     </div>
     <div class="flex">
       <div class="mx-4">
