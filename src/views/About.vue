@@ -9,23 +9,30 @@
           <i>uff Hessisch</i>. Meaning, in the Hessian dialect spoken around
           Frankfurt, Germany! This was very much inspired by
           <a
+            target="_blank"
+            rel="noreferer noopener"
             class="rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200 border-b-2 border-red-100"
             href="https://bavaria-ipsum.de/"
-            >Bavaria Ipsum</a
+            >Bavaria Ipsum 🏔️</a
           >.
         </div>
       </div>
       <div class="bg-gray-50 rounded-md p-4">
         <div class="font-bold">Who are you?</div>
         <div>
-          I'm a web developer from Frankfurt, you can find more of my work at
+          My name is Nico Domino, I'm a web developer from Frankfurt. You can
+          find more of my work at
           <a
+            target="_blank"
+            rel="noreferer noopener"
             class="rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200 border-b-2 border-red-100"
             href="https://ndo.dev"
             >ndo.dev</a
           >
           or on my Github at
           <a
+            target="_blank"
+            rel="noreferer noopener"
             class="rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200 border-b-2 border-red-100"
             href="https://github.com/ndom91"
             >@ndom91</a

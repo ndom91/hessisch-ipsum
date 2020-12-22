@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header msg="Lorem Ipsum Generator, aber uff Hessisch!" />
+    <Header />
     <Generator />
   </div>
 </template>

@@ -70,10 +70,10 @@
 
   <div class="container flex mx-auto w-3/4 md:w-1/2 p-4">
     <div
-      class="w-full p-4 focus:outline-none rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
+      class="w-full p-4 focus:outline-none rounded-md border-2 focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
       contenteditable
       v-html="output"
-      :class="{ 'border-2': isActive }"
+      v-if="isActive"
     ></div>
   </div>
 </template>
@@ -141,7 +141,7 @@ export default {
       this.sentences = 0
       this.paragraphs = 0
 
-      console.log('sentences:', randSentences.length)
+      // console.log('sentences:', randSentences.length)
       if (randSentences.length > 0) {
         this.isActive = true
       }
