@@ -29,3 +29,9 @@ export default {
   name: 'Nav'
 }
 </script>
+
+<style scoped>
+a {
+  border: none !important;
+}
+</style>

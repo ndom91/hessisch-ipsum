@@ -7,6 +7,7 @@
       <router-view />
     </div>
   </div>
+  <div id="bg" />
 </template>
 
 <script>

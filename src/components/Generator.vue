@@ -1,6 +1,8 @@
 <template>
   <div class="w-76 flex flex-col align-start mt-4">
-    <section class="bg-gray-50 rounded-md w-56 p-4 space-y-4">
+    <section
+      class="bg-gray-50 border-2 border-gray-50 rounded-md w-56 p-4 space-y-4"
+    >
       <div class="font-bold text-xl text-center">Was willsten?</div>
       <div class="flex space-x-6 justify-center">
         <div class="flex flex-col justify-start space-y-2 w-16">
@@ -35,19 +37,18 @@
     </section>
     <section class="relative">
       <button
-        :disabled="disabled"
-        class="w-full bg-red-50 mt-2 p-2 h-10 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 focus:outline-none disabled:cursor-default"
+        class="w-full bg-red-200 mt-2 p-2 h-10 rounded-md focus:ring-2 focus:ring-offset-2 focus:ring-red-100 focus:outline-none disabled:cursor-default"
         @click="createOutput"
       >
-        Mach hin!
+        Mach hi!
       </button>
       <button
         v-if="isActive"
         @click="copyOutput"
         name="copy"
         title="Copy to Clipboard"
-        v-tooltip="'Copy'"
-        class="absolute -right-12 top-2 p-1 h-10 text-gray-300 border-2 border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
+        v-tooltip.right="'Copy'"
+        class="absolute -right-12 top-2 p-1 h-10 text-gray-300 bg-gray-50 border-2 border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +71,7 @@
 
   <div class="container flex mx-auto w-3/4 md:w-1/2 p-4">
     <div
-      class="w-full p-4 focus:outline-none rounded-md border-2 focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
+      class="bg-gray-50 w-full p-4 focus:outline-none rounded-md border-2 focus:ring-2 focus:ring-offset-2 focus:ring-red-100 rounded-sm"
       contenteditable
       v-html="output"
       v-if="isActive"
@@ -82,9 +83,6 @@
 import { ref, computed } from 'vue'
 import { useToast } from 'vue-toastification'
 import Content from './content.json'
-
-// // After you create app
-// window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app.constructor
 
 const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1)
 
@@ -103,13 +101,14 @@ export default {
       isActive: false
     }
   },
-  computed: {
-    disabled() {
-      return this.sentences === 0 && this.paragraphs === 0 ? true : false
-    }
-  },
   methods: {
     createOutput(e) {
+      if (sentences.value == 0 && paragraphs.value == 0) {
+        this.toast.info('Musst was auswähle', {
+          hideProgressBar: true
+        })
+        return
+      }
       const items = Content.sentences
       const randSentences = []
       this.isActive = false
@@ -141,7 +140,6 @@ export default {
       this.sentences = 0
       this.paragraphs = 0
 
-      // console.log('sentences:', randSentences.length)
       if (randSentences.length > 0) {
         this.isActive = true
       }
@@ -166,7 +164,7 @@ export default {
 
 <style>
 .Vue-Toastification__toast--info {
-  background-color: #fca5a5 !important;
+  background-color: #f87171 !important;
   min-width: 185px !important;
 }
 </style>

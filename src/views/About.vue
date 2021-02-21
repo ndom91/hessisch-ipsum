@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col mt-8 container w-3/4 md:w-1/2 mx-auto">
-    <div class="font-bold text-xl p-4">About</div>
+    <div class="text-red-500 font-bold text-xl p-4">About</div>
     <section class="space-y-6 mt-4 mx-auto">
-      <div class="bg-gray-50 rounded-md p-4">
-        <div class="font-bold">What is this?</div>
+      <div class="bg-gray-100 rounded-md p-6">
+        <div class="text-red-500 font-bold">What is this?</div>
         <div>
           This is another Lorem Ipsum generator, but with a twist! This time
           <i>uff Hessisch</i>. Meaning, in the Hessian dialect spoken around
@@ -17,8 +17,8 @@
           >.
         </div>
       </div>
-      <div class="bg-gray-50 rounded-md p-4">
-        <div class="font-bold">Who are you?</div>
+      <div class="bg-gray-100 border-3 border-gray-50 rounded-md p-6">
+        <div class="text-red-500 font-bold">Who are you?</div>
         <div>
           My name is Nico Domino, I'm a web developer from Frankfurt. You can
           find more of my work at
@@ -39,8 +39,10 @@
           >.
         </div>
       </div>
-      <div class="bg-gray-50 rounded-md p-4">
-        <div class="font-bold">This is awesome! Can I buy you a coffee?</div>
+      <div class="bg-gray-100 rounded-md p-6">
+        <div class="text-red-500 font-bold">
+          This is awesome! Can I buy you a coffee?
+        </div>
         <div>
           You sure can! Just click
           <a
