@@ -1,6 +1,6 @@
 {
   "name": "hessisch-ipsum",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
@@ -9,31 +9,32 @@
     "test": "^0.6.0",
     "v-tooltip": "https://github.com/paulshen/v-tooltip.git#vue3",
     "vue": "^3.0.0-rc.1",
+    "vue-plausible": "^1.2.1",
     "vue-router": "^4.0.0-beta.13",
     "vue-toastification": "^2.0.0-beta.9",
     "vuex": "^4.0.0-beta.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.15.1",
-    "@typescript-eslint/parser": "^4.15.1",
-    "@vitejs/plugin-vue": "^1.1.4",
-    "@vue/compiler-sfc": "^3.0.5",
-    "autoprefixer": "^10.2.4",
-    "eslint": "^7.20.0",
-    "eslint-config-prettier": "^8.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.6.0",
-    "husky": "^5.0.9",
-    "postcss": "^8.2.6",
-    "prettier": "^2.2.1",
-    "sass": "^1.32.8",
-    "sass-loader": "^11.0.1",
-    "tailwindcss": "2.0.3",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "@vitejs/plugin-vue": "^1.2.5",
+    "@vue/compiler-sfc": "^3.1.5",
+    "autoprefixer": "^10.3.1",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.14.0",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "sass": "^1.36.0",
+    "sass-loader": "^12.1.0",
+    "simple-git-hooks": "^2.5.1",
+    "tailwindcss": "2.2.7",
     "ts-standard": "^10.0.0",
-    "typescript": "^4.1.5",
-    "vite": "^2.0.1"
+    "typescript": "^4.3.5",
+    "vite": "^2.4.3"
   },
   "prettier": {
     "semi": false,
@@ -41,10 +42,8 @@
     "singleQuote": true,
     "printWidth": 80
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+  "simple-git-hooks": {
+    "commit-msg": "npx --no-install commitlint --edit \"$1\""
   },
   "commitlint": {
     "extends": [
